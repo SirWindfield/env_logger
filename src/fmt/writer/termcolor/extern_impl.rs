@@ -450,7 +450,7 @@ impl_styled_value_fmt!(
 ///    in decimal or hexadecimal format.
 ///
 /// Hexadecimal numbers are written with a `0x` prefix.
-#[allow(missing_docs)]
+#[allow(manual_non_exhaustive, missing_docs)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum Color {
     Black,

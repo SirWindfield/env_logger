@@ -310,7 +310,7 @@ fn parse_spec(spec: &str) -> (Vec<Directive>, Option<inner::Filter>) {
         );
         return (dirs, None);
     }
-    mods.map(|m| {
+    if let Some(m) = mods {
         for s in m.split(',') {
             if s.is_empty() {
                 continue;
@@ -352,7 +352,7 @@ fn parse_spec(spec: &str) -> (Vec<Directive>, Option<inner::Filter>) {
                 level: log_level,
             });
         }
-    });
+    }
 
     let filter = filter.and_then(|filter| match inner::Filter::new(filter) {
         Ok(re) => Some(re),

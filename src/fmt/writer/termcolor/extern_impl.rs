@@ -370,6 +370,7 @@ impl Style {
     }
 
     /// Wrap a value in the style by taking ownership of it.
+    #[allow(clippy::wrong_self_convention)]
     pub(crate) fn into_value<T>(&mut self, value: T) -> StyledValue<'static, T> {
         StyledValue {
             style: Cow::Owned(self.clone()),
@@ -450,18 +451,27 @@ impl_styled_value_fmt!(
 ///    in decimal or hexadecimal format.
 ///
 /// Hexadecimal numbers are written with a `0x` prefix.
-#[allow(clippy::manual_non_exhaustive, missing_docs)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum Color {
+    #[allow(missing_docs)]
     Black,
+    #[allow(missing_docs)]
     Blue,
+    #[allow(missing_docs)]
     Green,
+    #[allow(missing_docs)]
     Red,
+    #[allow(missing_docs)]
     Cyan,
+    #[allow(missing_docs)]
     Magenta,
+    #[allow(missing_docs)]
     Yellow,
+    #[allow(missing_docs)]
     White,
+    #[allow(missing_docs)]
     Ansi256(u8),
+    #[allow(missing_docs)]
     Rgb(u8, u8, u8),
     #[doc(hidden)]
     __Nonexhaustive,
